@@ -1,3 +1,9 @@
+body{
+  height: 100% !important;
+}
+.faq{
+  height: 100% !important;
+}
 .accordion {
   width: 100%;
 }
@@ -48,14 +54,20 @@
 
   align-items: center;
   justify-content: center;
-  height: 300px !important;
+  height: 350px !important;
   /* margin-top: 200px; */
 }
 .faq .div2{
-height: 70% !important;
+/* height: 60% !important; */
 background-color: hsla(293, 16%, 49%, 0.223);
 }
 .faq .accordion{
   align-items: center;
   background-color: white;
+}
+@media only screen and (max-width: 450px){
+  .accordion {
+    width: 80% !important;
+  }
+  
 }
