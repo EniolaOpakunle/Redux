@@ -54,11 +54,11 @@ body{
 
   align-items: center;
   justify-content: center;
-  height: 350px !important;
+  height: 300px !important;
   /* margin-top: 200px; */
 }
 .faq .div2{
-/* height: 60% !important; */
+height: 403px !important;
 background-color: hsla(293, 16%, 49%, 0.223);
 }
 .faq .accordion{
