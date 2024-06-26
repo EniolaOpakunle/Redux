@@ -26,7 +26,7 @@ export default function App() {
         <div className="d-flex div1">
           <div className="w-50 p-5 accordion">
             <p className="title">
-              <img src={logo} alt="" /> <span>{data.title}</span>
+              <img src={logo} alt="" /> <span>{data?.title}</span>
             </p>
             <div>
               {data?.faqs?.map((val, index) => (
