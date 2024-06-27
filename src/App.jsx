@@ -9,9 +9,13 @@ import './App.css'
 export default function App() {
   const dispatch = useDispatch();
   const faqs = useSelector((state) => state.faqs);
+  const [message, setmessage] = useState('')
   const [activeIndex, setActiveIndex] = useState(null);
   useEffect(() => {
     dispatch(fetchFaq());
+    
+checkLoading()
+checkError()
   }, [dispatch]);
 
   console.log(faqs.data);
@@ -20,14 +24,28 @@ export default function App() {
     setActiveIndex(index === activeIndex ? null : index);
 }
 
+const checkLoading = () =>{
+  if(faqs.isLoading == true){
+    return setmessage('Loading')
+  }
+}
+const checkError = () =>{
+  if (faqs.isError == true) {
+    return setmessage('Network Error')
+  }
+}
+
   return (
     <div>
       <div className="faq">
         <div className="d-flex div1">
           <div className="w-50 p-5 accordion">
+            
             <p className="title">
               <img src={logo} alt="" /> <span>{data?.title}</span>
             </p>
+            
+            <p className="text-center">{message}</p>
             <div>
               {data?.faqs?.map((val, index) => (
                 <div key={index} className="accordion-item">
