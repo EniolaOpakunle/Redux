@@ -19,7 +19,7 @@ export default function App() {
     console.log(true)
   }
   if (faqs.isError) {
-    return <div className="loadingDiv">{faqs.message}</div>
+    return <div className="loadingDiv text-center">{faqs.message}</div>
     console.log('error wa oo')
   }
 
