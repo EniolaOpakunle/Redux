@@ -13,27 +13,22 @@ export default function App() {
   const [activeIndex, setActiveIndex] = useState(null);
   useEffect(() => {
     dispatch(fetchFaq());
-    
-checkLoading()
-checkError()
   }, [dispatch]);
+  if(faqs.isLoading){
+    return <div className="loadingDiv text-center">Loading...</div>
+    console.log(true)
+  }
+  if (faqs.isError) {
+    return <div className="loadingDiv">{faqs.message}</div>
+    console.log('error wa oo')
+  }
 
-  console.log(faqs.data);
-  const data = faqs.data;
+  console.log(faqs);
+  const data = faqs.data;                                                         
   const onItemClick = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
 }
 
-const checkLoading = () =>{
-  if(faqs.isLoading == true){
-    return setmessage('Loading')
-  }
-}
-const checkError = () =>{
-  if (faqs.isError == true) {
-    return setmessage('Network Error')
-  }
-}
 
   return (
     <div>
@@ -44,8 +39,7 @@ const checkError = () =>{
             <p className="title">
               <img src={logo} alt="" /> <span>{data?.title}</span>
             </p>
-            
-            <p className="text-center">{message}</p>
+            {/* <p className="text-center">{message}</p> */}
             <div>
               {data?.faqs?.map((val, index) => (
                 <div key={index} className="accordion-item">
